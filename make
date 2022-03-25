@@ -1,1 +1,1 @@
-docker -t code-server-cvhs build https://github.com/CVHS-CloudIDE/code-server.git#main
+docker build -t code-server-cvhs https://github.com/CVHS-CloudIDE/code-server.git#main
