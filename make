@@ -1,1 +1,1 @@
-docker build git@github.com:CVHS-CloudIDE/code-server.git
+docker build https://github.com/CVHS-CloudIDE/code-server.git
