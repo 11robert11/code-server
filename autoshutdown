@@ -1,0 +1,27 @@
+#!/bin/bash
+now=$(date +%s)
+fp=~/.local/share/code-server/heartbeat
+
+# The heartbeat file does not exist before a browser session is connected,
+# but we also want to exit if that never happens.
+if [[ ! -f $fp ]]; then
+    # No session yet.
+    # Create the heartbeat file to mark the startup time.
+    touch $fp
+fi
+
+heartbeat=$(date +%s -r $fp)
+
+# NOTE: This was my original block and doesn't work 👇
+#if (( (now-heartbeat) > 300 )); then
+#    echo "Heartbeat file older than 5 minutes."
+#    # Does not work, because Docker main processes ignore signals: kill -s SIGTERM 1
+#    exit 1
+#fi
+
+if (( (now-heartbeat) > 300 )); then
+    echo "Hea
+    kill 1
+else
+    sleep 1
+fi
