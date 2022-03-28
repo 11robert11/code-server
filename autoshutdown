@@ -18,10 +18,13 @@ heartbeat=$(date +%s -r $fp)
 #    # Does not work, because Docker main processes ignore signals: kill -s SIGTERM 1
 #    exit 1
 #fi
-
-if (( (now-heartbeat) > 300 )); then
-    echo "Hea
-    kill 1
-else
+while $(date +%s)-$(date +%s -r $fp) > 300
+do
     sleep 1
-fi
+done
+docker stop $(hostname)
+#if (( (now-heartbeat) > 300 )); then
+ #   docker stop $(host)
+#else
+#    sleep 1
+#fi
