@@ -7,3 +7,10 @@ RUN apt-get update && \
     curl -sSL https://get.docker.com/ | sh
 RUN apt-get --yes install python3.8 docker openjdk-17-jdk
 EXPOSE 8080
+
+COPY ./autoshutdown.sh /autoshutdown.sh
+COPY ./start /start
+RUN chmod +x start
+RUN chmod +x autoshutdown.sh
+
+ENTRYPOINT ["/start"]

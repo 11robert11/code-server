@@ -1,1 +1,0 @@
- docker run --rm -d -p 8443:8443 --name=test -e SUDO_PASSWORD=password -v /var/run/docker.sock:/var/run/docker.sock code-server-cvhs
