@@ -17,4 +17,4 @@ done
 
 
 echo "stopping";
-#docker stop $(hostname)
+docker stop $(hostname)
