@@ -1,11 +1,10 @@
 FROM linuxserver/code-server
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && \
-    apt-get -qy full-upgrade && \
-    apt-get install -qy curl && \
-    apt-get install -qy curl && \
-    curl -sSL https://get.docker.com/ | sh
-RUN apt-get --yes install python3.8 docker openjdk-17-jdk
+RUN apt-get update --fix-missing
+RUN apt-get -qy full-upgrade
+RUN apt-get install -qy curl
+RUN curl -sSL https://get.docker.com/ | sH
+RUN apt-get --yes install python3.8 openjdk-17-jdk-headless npm
 EXPOSE 8080
 
 COPY ./scripts/container/autoshutdown.sh /autoshutdown.sh
